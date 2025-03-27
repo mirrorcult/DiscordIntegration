@@ -23,9 +23,6 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.component.ItemLore;
-import net.minecraft.world.item.component.Unbreakable;
-import net.minecraft.world.item.enchantment.Enchantment;
-import net.minecraft.world.item.enchantment.ItemEnchantments;
 import net.minecraft.world.level.Level;
 
 public class MessageUtilsImpl extends MessageUtils {
@@ -74,15 +71,6 @@ public class MessageUtilsImpl extends MessageUtils {
                                         b.setFooter(is.getItemHolder().getRegisteredName());
                                     b.setTitle(title.getString());
                                     final StringBuilder tooltip = new StringBuilder();
-                                    //Add Enchantments
-                                    if (itemTag.has(DataComponents.ENCHANTMENTS)) {
-                                        final ItemEnchantments e = itemTag.get(DataComponents.ENCHANTMENTS);
-                                        if (e != null)
-                                            if (((ShowInTooltipAccessor) e).discordIntegration$showsInTooltip())
-                                                for (Object2IntMap.Entry<Holder<Enchantment>> ench : e.entrySet()) {
-                                                    tooltip.append(ChatFormatting.stripFormatting(ench.getKey().value().getFullname(ench.getKey(),e.getLevel(ench.getKey())).getString())).append("\n");
-                                                }
-                                    }
                                     //Add Lores
                                     if (itemTag.has(DataComponents.LORE)) {
                                         final ItemLore l = itemTag.get(DataComponents.LORE);
@@ -90,13 +78,6 @@ public class MessageUtilsImpl extends MessageUtils {
                                             for (Component line : l.lines()) {
                                                 tooltip.append("_").append(line.getString()).append("_\n");
                                             }
-                                    }
-                                    //Add 'Unbreakable' Tag
-                                    if (itemTag.has(DataComponents.UNBREAKABLE)) {
-                                        final Unbreakable unb = itemTag.get(DataComponents.UNBREAKABLE);
-                                        if (unb != null)
-                                            if (unb.showInTooltip())
-                                                tooltip.append("Unbreakable\n");
                                     }
                                     b.setDescription(tooltip.toString());
                                     return b.build();

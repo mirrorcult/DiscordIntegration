@@ -35,7 +35,7 @@ public class DCCommandSender implements CommandSource {
         if (member != null)
             name = Component.literal("@" + (!member.getUser().getDiscriminator().equals("0000") ? member.getUser().getAsTag() : member.getEffectiveName()))
                     .setStyle(Style.EMPTY.withHoverEvent(
-                            new HoverEvent(HoverEvent.Action.SHOW_TEXT,
+                            new HoverEvent.ShowText(
                                     Component.literal(Localization.instance().discordUserHover
                                             .replace("%user#tag%", !member.getUser().getDiscriminator().equals("0000") ? member.getUser().getAsTag() : member.getEffectiveName())
                                             .replace("%user%", member.getEffectiveName())
@@ -43,7 +43,7 @@ public class DCCommandSender implements CommandSource {
         else
             name = Component.literal("@" + (!user.getDiscriminator().equals("0000") ? user.getAsTag() : user.getEffectiveName()))
                     .setStyle(Style.EMPTY.withHoverEvent(
-                            new HoverEvent(HoverEvent.Action.SHOW_TEXT,
+                            new HoverEvent.ShowText(
                                     Component.literal(Localization.instance().discordUserHover
                                             .replace("%user#tag%", !user.getDiscriminator().equals("0000") ? user.getAsTag() : user.getEffectiveName())
                                             .replace("%user%", user.getEffectiveName())
