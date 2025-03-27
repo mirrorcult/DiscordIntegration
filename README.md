@@ -1,11 +1,5 @@
 # Discord-Integration
-![Modrinth Downloads](https://img.shields.io/modrinth/dt/dcintegration?style=flat&logo=modrinth)
 
-This mod links your server chat with a channel on your discord server.
+fork of https://github.com/ErdbeerbaerLP/DiscordIntegration with minimum 1.21.5 support (item enchantment viewing is removed but everything else i've noticed is working)
 
-Wiki: https://wiki.erdbeerbaerlp.de/dcintegration:root
-
-[![Discord Server](https://discordapp.com/api/guilds/881880836377546824/widget.png?style=banner2)](https://erd.wtf/discord)
-
-
-This Repository contains the Forge and Fabric builds
+see 0e0f94264692ee5fb37927646b1e346430c4e35d
